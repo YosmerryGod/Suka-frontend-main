@@ -706,3 +706,67 @@ h1 {
 @media (prefers-reduced-motion: no-preference) {
   .mascot-float { animation: none !important; }
 }
+
+
+/* [MODIFIED] Anchor the mascot visually to the chat field and restore its intended scale. */
+.mascot-stage {
+  align-items: flex-end;
+  min-height: 0;
+  height: 560px;
+  margin: -18px -70px -4px;
+}
+
+.mascot-float {
+  width: min(122%, 900px);
+  max-width: none;
+  align-self: flex-end;
+  margin-bottom: -8px;
+  animation: none !important;
+  transform: none !important;
+}
+
+/* [MODIFIED] The prompt sits directly under the mascot's hands/base, not far below it. */
+.question-bar {
+  margin-top: -2px;
+}
+
+/* [MODIFIED] Mobile mascot fills the visual column and meets the input field. */
+@media (max-width: 760px) {
+  .mascot-stage {
+    height: clamp(390px, 66vw, 500px);
+    min-height: 0;
+    aspect-ratio: auto;
+    align-items: flex-end;
+    justify-content: center;
+    margin: -4px -22px -8px;
+    overflow: visible;
+  }
+
+  .mascot-float {
+    width: min(132vw, 820px);
+    max-width: none;
+    margin: 0 0 -6px;
+    align-self: flex-end;
+  }
+
+  .question-bar {
+    margin-top: -2px;
+  }
+}
+
+/* [MODIFIED] On narrow phones, size the SVG from viewport width instead of a small fixed cap. */
+@media (max-width: 560px) {
+  .mascot-stage {
+    height: clamp(390px, 108vw, 500px);
+    margin: -2px -20px -10px;
+  }
+
+  .mascot-float {
+    width: min(145vw, 820px);
+    margin-bottom: -4px;
+  }
+
+  .question-bar {
+    margin-top: -1px;
+  }
+}
