@@ -209,59 +209,63 @@ export default function App() {
 
   return (
     <main className="page-shell">
-      <header className="site-header">
-        <a className="brand" href="#beranda" aria-label="SUKA beranda">
-          <span className="brand-mark"><span className="brand-face">●</span></span>
-          <span>SUKA</span>
-        </a>
-        <nav className="main-nav" aria-label="Navigasi utama">
-          <a className="nav-link active" href="#beranda">Beranda</a>
-          <a className="nav-link" href="#fitur">Fitur</a>
-          <a className="nav-link" href="#solusi">Solusi</a>
-          <a className="nav-link" href="#wawasan">Wawasan</a>
-        </nav>
-        <div className="header-actions">
-          <a className="login-button" href="#masuk">Masuk</a>
-          <a className="start-button" href="#mulai">Mulai Gratis</a>
-        </div>
-      </header>
+      <section className="landing-section" id="beranda">
+        <header className="site-header">
+          <a className="brand" href="#beranda" aria-label="SUKA beranda">
+            <span className="brand-mark"><span className="brand-face">●</span></span>
+            <span>SUKA</span>
+          </a>
+          <nav className="main-nav" aria-label="Navigasi utama">
+            <a className="nav-link active" href="#beranda">Beranda</a>
+            <a className="nav-link" href="#fitur">Fitur</a>
+            <a className="nav-link" href="#solusi">Solusi</a>
+            <a className="nav-link" href="#wawasan">Wawasan</a>
+          </nav>
+          <div className="header-actions">
+            <a className="login-button" href="#masuk">Masuk</a>
+            <a className="start-button" href="#mulai">Mulai Gratis</a>
+          </div>
+        </header>
 
-      <section className="hero" id="beranda">
-        <div className="hero-copy">
-          <div className="eyebrow"><SparkleIcon /> <span>AI Business Partner</span></div>
-          <h1>Bangun bisnis<br />lebih <span>jelas.</span></h1>
-          {/* [MODIFIED] Headline dipertahankan sebagai satu-satunya pesan utama hero. */}
+        <div className="hero">
+          <div className="hero-copy">
+            <div className="eyebrow"><SparkleIcon /> <span>AI Business Partner</span></div>
+            <h1>Bangun bisnis<br />lebih <span>jelas.</span></h1>
+            {/* [MODIFIED] Landing page hanya menampilkan headline utama. */}
+          </div>
+
+          <div className="mascot-stage" ref={mascotRef}>
+            {/* [MODIFIED] Lingkaran dan maskot berasal dari satu SVG yang sama. */}
+            <div className="mascot-float"><Mascot gaze={gaze} /></div>
+          </div>
         </div>
 
-        <div className="mascot-stage" ref={mascotRef}>
-          {/* [MODIFIED] Lingkaran latar berasal dari SVG maskot, bukan elemen CSS terpisah. */}
-          <div className="mascot-float"><Mascot gaze={gaze} /></div>
-        </div>
+        <form className="question-bar" onSubmit={submitQuestion}>
+          <label className="sr-only" htmlFor="question-input">Tanyakan tentang bisnismu</label>
+          <input
+            id="question-input"
+            value={question}
+            onChange={(event) => setQuestion(event.target.value)}
+            placeholder="Tanyakan apa pun tentang bisnis kamu..."
+          />
+          <button type="submit" aria-label="Kirim pertanyaan"><ArrowIcon /></button>
+        </form>
+
+        {/* [ADDED] Gelombang bawah menjadi penutup visual satu-satunya section. */}
+        <svg className="wave-art" viewBox="0 0 2172 724" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="wave-mint" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stopColor="#b7f3ed" />
+              <stop offset="1" stopColor="#8de9df" />
+            </linearGradient>
+            <linearGradient id="wave-teal" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stopColor="#18c9bd" />
+              <stop offset="1" stopColor="#00a99f" />
+            </linearGradient>
+          </defs>
+          <path d="M0 295 C170 245 250 280 420 360 C610 445 760 470 930 425 C1080 385 1120 355 1260 360 C1450 370 1580 430 1740 355 C1900 280 2040 255 2172 285 L2172 724 L0 724 Z" fill="url(#wave-mint)" />
+          <path d="M0 430 C190 390 300 420 470 485 C660 560 800 600 990 585 C1180 570 1300 510 1470 455 C1660 395 1800 385 1950 405 C2040 415 2110 435 2172 445 L2172 724 L0 724 Z" fill="url(#wave-teal)" />
+        </svg>
       </section>
-
-      <form className="question-bar" onSubmit={submitQuestion}>
-        <label className="sr-only" htmlFor="question-input">Tanyakan tentang bisnismu</label>
-        <input
-          id="question-input"
-          value={question}
-          onChange={(event) => setQuestion(event.target.value)}
-          placeholder="Tanyakan apa pun tentang bisnis kamu..."
-        />
-        <button type="submit" aria-label="Kirim pertanyaan"><ArrowIcon /></button>
-      </form>
-
-      <section className="below-fold" id="fitur">
-        <span className="section-kicker">Pikirkan langkah berikutnya</span>
-        <h2>Bisnis lebih jelas, dimulai dari percakapan.</h2>
-        <p>SUKA membantu menyusun pikiran menjadi langkah yang bisa kamu jalankan.</p>
-      </section>
-
-      <footer className="site-footer">
-        <span>© {new Date().getFullYear()} SUKA AI</span>
-        <span>Partner berpikir untuk perjalanan bisnismu.</span>
-      </footer>
-      <div className="landscape landscape-back" />
-      <div className="landscape landscape-front" />
-    </main>
   );
 }
