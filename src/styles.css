@@ -566,3 +566,143 @@ h1 span:after {
     transition-duration: .01ms !important;
   }
 }
+
+
+/* [MODIFIED] Reference composition: one short headline, one large mascot, one primary input. */
+.hero {
+  width: min(1280px, calc(100% - 12vw));
+  min-height: 500px;
+  margin-top: 0;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  align-items: center;
+  column-gap: 0;
+}
+
+.hero-copy {
+  padding: 0 0 38px;
+  transform: translateY(-4px);
+}
+
+.eyebrow {
+  margin-bottom: 34px;
+  padding: 12px 22px;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: clamp(64px, 6.1vw, 92px);
+  line-height: 1.04;
+  letter-spacing: -5.8px;
+}
+
+.mascot-stage {
+  min-height: 520px;
+  margin: -4px -65px 0 -70px;
+  overflow: visible;
+}
+
+.mascot-float {
+  width: 112%;
+  max-width: 920px;
+  animation: none;
+  transform: none;
+  filter: drop-shadow(0 24px 18px #004c5120);
+}
+
+.question-bar {
+  width: min(1360px, calc(100% - 12vw));
+  min-height: 126px;
+  margin: -8px auto 0;
+}
+
+.below-fold {
+  padding-top: 104px;
+}
+
+/* [MODIFIED] Tablet keeps the same hierarchy without squeezing the headline. */
+@media (max-width: 1100px) {
+  .hero {
+    width: calc(100% - 8vw);
+    min-height: 460px;
+    grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+  }
+
+  .hero-copy { padding-bottom: 24px; }
+  h1 { font-size: clamp(52px, 6vw, 72px); letter-spacing: -4px; }
+  .mascot-stage { min-height: 460px; margin-right: -35px; margin-left: -55px; }
+  .mascot-float { width: 120%; }
+  .question-bar { width: calc(100% - 8vw); }
+}
+
+/* [MODIFIED] Mobile stacks only the essential message and mascot above the prompt. */
+@media (max-width: 760px) {
+  .hero {
+    width: calc(100% - 40px);
+    min-height: unset;
+    margin-top: 8px;
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy {
+    padding: 20px 0 0;
+    text-align: center;
+    transform: none;
+  }
+
+  .eyebrow {
+    margin-bottom: 22px;
+    padding: 9px 15px;
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: clamp(44px, 11vw, 66px);
+    line-height: 1.06;
+    letter-spacing: -3.2px;
+  }
+
+  .mascot-stage {
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 1.38 / 1;
+    margin: -5px -18px -2px;
+    overflow: visible;
+  }
+
+  .mascot-float {
+    width: min(112%, 560px);
+    max-width: none;
+    animation: none;
+    transform: none;
+  }
+
+  .question-bar {
+    width: calc(100% - 36px);
+    min-height: 76px;
+    margin: -4px auto 0;
+    padding: 8px 9px 8px 20px;
+    gap: 8px;
+  }
+
+  .below-fold { padding-top: 76px; }
+}
+
+/* [ADDED] Small screens preserve whitespace and keep the mascot anchored directly above chat. */
+@media (max-width: 560px) {
+  .hero { margin-top: 4px; }
+  .hero-copy { padding-top: 16px; }
+  .eyebrow { margin-bottom: 18px; }
+  h1 { font-size: clamp(43px, 11.8vw, 56px); }
+  .mascot-stage {
+    aspect-ratio: 1.28 / 1;
+    margin: -2px -12px 0;
+  }
+  .mascot-float { width: min(112%, 440px); }
+  .question-bar { margin-top: -2px; }
+  .below-fold { padding-top: 66px; }
+}
+
+/* [MODIFIED] SUKA's mascot stays still; only intentional eye feedback remains. */
+@media (prefers-reduced-motion: no-preference) {
+  .mascot-float { animation: none !important; }
+}
