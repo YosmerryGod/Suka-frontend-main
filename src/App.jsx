@@ -16,6 +16,84 @@ function SparkleIcon() {
   );
 }
 
+function LogoIcon() {
+  return (
+    <svg viewBox="0 0 1254 1254" role="img" aria-label="Logo SUKA" focusable="false">
+      <defs>
+        <clipPath id="suka-logo-icon">
+          <rect x="4" y="3" width="1246" height="1248" rx="340" ry="340" />
+        </clipPath>
+        <linearGradient id="suka-logo-bg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#006b79" />
+          <stop offset="1" stopColor="#038391" />
+        </linearGradient>
+        <radialGradient id="suka-logo-body" cx="0.5" cy="0.25" r="0.85">
+          <stop offset="0" stopColor="#ffffff" />
+          <stop offset="0.55" stopColor="#f4f3fc" />
+          <stop offset="1" stopColor="#d6d7ee" />
+        </radialGradient>
+        <radialGradient id="suka-logo-ball" cx="0.5" cy="0.25" r="0.85">
+          <stop offset="0" stopColor="#ffffff" />
+          <stop offset="0.5" stopColor="#e9fdfb" />
+          <stop offset="1" stopColor="#86eee3" />
+        </radialGradient>
+        <linearGradient id="suka-logo-stalk" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#ffffff" />
+          <stop offset="1" stopColor="#d9dcf0" />
+        </linearGradient>
+        <linearGradient id="suka-logo-eye" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#03505a" />
+          <stop offset="0.55" stopColor="#047a82" />
+          <stop offset="1" stopColor="#00ffe3" />
+        </linearGradient>
+        <linearGradient id="suka-logo-mouth" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#04555e" />
+          <stop offset="1" stopColor="#0a8f94" />
+        </linearGradient>
+        <radialGradient id="suka-logo-paw" cx="0.5" cy="0.2" r="0.9">
+          <stop offset="0" stopColor="#ffffff" />
+          <stop offset="0.7" stopColor="#f1f0fb" />
+          <stop offset="1" stopColor="#d3d4ec" />
+        </radialGradient>
+        <filter id="suka-logo-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="14" result="blur" />
+          <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.1 0 0 0 0 0.95 0 0 0 0 0.9 0 0 0 0.9 0" result="glow" />
+          <feMerge><feMergeNode in="glow" /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
+        <filter id="suka-logo-soft" x="-10%" y="-10%" width="120%" height="130%">
+          <feDropShadow dx="0" dy="6" stdDeviation="8" floodColor="#003a44" floodOpacity="0.25" />
+        </filter>
+      </defs>
+      <g clipPath="url(#suka-logo-icon)">
+        <rect x="0" y="0" width="1254" height="1254" fill="url(#suka-logo-bg)" />
+        <path d="M452 690 C452 625 420 588 372 568" fill="none" stroke="url(#suka-logo-stalk)" strokeWidth="44" strokeLinecap="round" />
+        <path d="M797 690 C797 625 830 588 880 568" fill="none" stroke="url(#suka-logo-stalk)" strokeWidth="44" strokeLinecap="round" />
+        <circle cx="318" cy="527" r="91" fill="url(#suka-logo-ball)" filter="url(#suka-logo-glow)" />
+        <circle cx="931" cy="527" r="91" fill="url(#suka-logo-ball)" filter="url(#suka-logo-glow)" />
+        <path d="M110 1260 C110 900 380 662 620 648 C870 662 1140 900 1138 1260 Z" fill="url(#suka-logo-body)" filter="url(#suka-logo-soft)" />
+        <ellipse cx="390" cy="920" rx="133" ry="123" fill="url(#suka-logo-eye)" />
+        <ellipse cx="862" cy="920" rx="133" ry="123" fill="url(#suka-logo-eye)" />
+        <ellipse cx="448" cy="866" rx="40" ry="38" fill="#ffffff" />
+        <ellipse cx="806" cy="865" rx="40" ry="38" fill="#ffffff" />
+        <path d="M555 965 C592 982 665 982 702 962 C706 1030 682 1083 628 1083 C576 1083 552 1030 555 965 Z" fill="url(#suka-logo-mouth)" />
+        <path d="M572 1040 C585 1015 670 1015 685 1040 C672 1070 650 1082 628 1082 C606 1082 585 1070 572 1040 Z" fill="#12b7b3" opacity="0.9" />
+        <g stroke="#19dccb" strokeWidth="10" strokeLinecap="round" fill="none">
+          <line x1="236" y1="1056" x2="252" y2="1034" />
+          <line x1="264" y1="1072" x2="279" y2="1050" />
+          <line x1="974" y1="1048" x2="989" y2="1070" />
+          <line x1="1000" y1="1030" x2="1017" y2="1052" />
+        </g>
+        <g filter="url(#suka-logo-soft)">
+          <path d="M205 1262 C205 1150 272 1090 346 1090 C430 1090 492 1150 486 1235 L486 1262 Z" fill="url(#suka-logo-paw)" />
+          <path d="M770 1262 C770 1150 832 1090 906 1090 C990 1090 1052 1150 1046 1235 L1046 1262 Z" fill="url(#suka-logo-paw)" />
+          <path d="M288 1190 C290 1220 296 1240 300 1254 M402 1190 C400 1220 394 1240 390 1254" fill="none" stroke="#cdcde8" strokeWidth="7" strokeLinecap="round" />
+          <path d="M853 1190 C855 1220 861 1240 865 1254 M967 1190 C965 1220 959 1240 955 1254" fill="none" stroke="#cdcde8" strokeWidth="7" strokeLinecap="round" />
+        </g>
+      </g>
+    </svg>
+  );
+}
+
 function Mascot({ gaze }) {
   return (
     <svg className="mascot-svg" viewBox="0 0 1536 1024" role="img" aria-label="Maskot SUKA 3D dengan mata yang mengikuti gerakan pointer">
@@ -212,7 +290,7 @@ export default function App() {
       <section className="landing-section" id="beranda">
         <header className="site-header">
           <a className="brand" href="#beranda" aria-label="SUKA beranda">
-            <span className="brand-mark"><span className="brand-face">●</span></span>
+            <span className="brand-mark"><LogoIcon /></span>
             <span>SUKA</span>
           </a>
           <nav className="main-nav" aria-label="Navigasi utama">
