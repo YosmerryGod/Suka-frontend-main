@@ -770,3 +770,40 @@ h1 {
     margin-top: -1px;
   }
 }
+
+
+/* [MODIFIED] Crop the unused transparent tail of the SVG so its visible base meets the chat field. */
+.mascot-stage {
+  overflow: hidden;
+  margin-bottom: -34px;
+}
+
+.mascot-float {
+  transform: translateY(5.8%) !important;
+}
+
+/* [MODIFIED] Apply the same SVG-bottom correction on phones and remove the remaining gap. */
+@media (max-width: 760px) {
+  .mascot-stage {
+    overflow: hidden;
+    margin-bottom: -46px;
+  }
+
+  .mascot-float {
+    transform: translateY(5.8%) !important;
+  }
+
+  .question-bar {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .mascot-stage {
+    margin-bottom: -48px;
+  }
+
+  .question-bar {
+    margin-top: 0;
+  }
+}
