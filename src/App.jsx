@@ -240,10 +240,20 @@ export default function App() {
           </div>
         </div>
 
+        {/* [ADDED] Vertical mobile progress decoration from the supplied reference. */}
+        <div className="mobile-progress" aria-hidden="true">
+          <span className="is-active" />
+          <span />
+          <span />
+          <span />
+        </div>
+
         <form className="question-bar" onSubmit={submitQuestion}>
           <label className="sr-only" htmlFor="question-input">Tanyakan tentang bisnismu</label>
-          <input
+          {/* [MODIFIED] Textarea allows the two-line mobile prompt shown in the reference. */}
+          <textarea
             id="question-input"
+            rows="2"
             value={question}
             onChange={(event) => setQuestion(event.target.value)}
             placeholder="Tanyakan apa pun tentang bisnis kamu..."
