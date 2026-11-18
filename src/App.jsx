@@ -92,6 +92,24 @@ function Mascot({ gaze }) {
         </clipPath>
       </defs>
 
+      {/* [ADDED] Face motion: smooth gaze tracking and a gentle automatic blink. */}
+      <style>{`
+        .suka-eye-gaze { transition: transform .18s ease-out; }
+        .suka-blink {
+          transform-box: fill-box;
+          transform-origin: center;
+          animation: suka-blink 5.2s infinite;
+        }
+        @keyframes suka-blink {
+          0%, 93%, 100% { transform: scaleY(0); }
+          94.5%, 96% { transform: scaleY(1); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .suka-eye-gaze { transition: none; }
+          .suka-blink { animation: none; }
+        }
+      `}</style>
+
       <g clipPath="url(#suka-cut)">
         <circle cx="748" cy="597" r="512" fill="url(#suka-teal)" />
       </g>
