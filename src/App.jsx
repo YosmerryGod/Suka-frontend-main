@@ -230,14 +230,12 @@ export default function App() {
         <div className="hero-copy">
           <div className="eyebrow"><SparkleIcon /> <span>AI Business Partner</span></div>
           <h1>Bangun bisnis<br />lebih <span>jelas.</span></h1>
-          <p className="hero-description">Teman berpikir untuk memahami tantangan, menemukan peluang, dan mengambil langkah bisnis dengan lebih yakin.</p>
-          <div className="trust-note"><span className="trust-dot" /> Mulai dari pertanyaan yang sedang kamu hadapi.</div>
+          {/* [MODIFIED] Headline dipertahankan sebagai satu-satunya pesan utama hero. */}
         </div>
 
         <div className="mascot-stage" ref={mascotRef}>
           {/* [MODIFIED] Lingkaran latar berasal dari SVG maskot, bukan elemen CSS terpisah. */}
           <div className="mascot-float"><Mascot gaze={gaze} /></div>
-          <span className="mascot-caption">SUKA siap membantu bisnismu</span>
         </div>
       </section>
 
