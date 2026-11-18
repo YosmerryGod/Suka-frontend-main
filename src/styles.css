@@ -48,40 +48,23 @@ button, input { font: inherit; }
   letter-spacing: -1.5px;
 }
 
+/* [MODIFIED] The supplied SVG is the complete brand mark; do not layer another circle or face over it. */
 .brand-mark {
+  display: block;
+  flex: 0 0 48px;
   width: 48px;
   height: 48px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: white;
-  background: radial-gradient(circle at 34% 28%, #4ee0d2, #009c96 72%);
-  box-shadow: inset 0 -3px 6px #006c7040;
+  overflow: hidden;
+  border-radius: 13px;
+  background: transparent;
+  box-shadow: none;
 }
 
-.brand-face {
-  position: relative;
-  width: 27px;
-  height: 23px;
-  border-radius: 50% 50% 43% 43%;
-  background: #f8ffff;
-  color: #092a39;
-  font-size: 0;
+.brand-mark svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
-
-.brand-face:before,
-.brand-face:after {
-  content: '';
-  position: absolute;
-  top: 9px;
-  width: 5px;
-  height: 6px;
-  border-radius: 50%;
-  background: #092a39;
-}
-
-.brand-face:before { left: 6px; }
-.brand-face:after { right: 6px; }
 
 .main-nav {
   display: flex;
