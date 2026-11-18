@@ -779,7 +779,7 @@ h1 {
 }
 
 .mascot-float {
-  transform: translateY(5.8%) !important;
+  transform: translateY(calc(5.8% - 5px)) !important;
 }
 
 /* [MODIFIED] Apply the same SVG-bottom correction on phones and remove the remaining gap. */
@@ -790,7 +790,7 @@ h1 {
   }
 
   .mascot-float {
-    transform: translateY(5.8%) !important;
+    transform: translateY(calc(5.8% - 5px)) !important;
   }
 
   .question-bar {
