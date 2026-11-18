@@ -1,0 +1,71 @@
+# [ADDED] CI workflow: install dependencies, build the Vite app, and preserve build output for inspection.
+name: SUKA CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: suka-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Install and build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: package.json
+
+      - name: Show runtime versions
+        run: |
+          node --version
+          npm --version
+
+      # [ADDED] The repository currently has no package-lock.json, so use npm install instead of npm ci.
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      # [ADDED] Build failures are shown directly in this step's GitHub Actions log.
+      - name: Build production bundle
+        run: npm run build
+
+      - name: Verify build output
+        run: |
+          test -s dist/index.html
+          echo "Build output verified: dist/index.html"
+
+      - name: Upload production build
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: suka-production-build
+          path: dist/
+          if-no-files-found: error
+          retention-days: 7
+
+      # [ADDED] Print concise diagnostics after a failed run without hiding the original error.
+      - name: Failure diagnostics
+        if: failure()
+        run: |
+          echo "::error::SUKA CI failed. Open the failed step above to inspect the full error log."
+          echo "Node: $(node --version)"
+          echo "npm: $(npm --version)"
+          echo "Working directory: $GITHUB_WORKSPACE"
