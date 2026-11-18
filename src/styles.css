@@ -1342,3 +1342,26 @@ h1 {
     gap: 32px;
   }
 }
+
+
+/* [ADDED] Keep the prompt field visually consistent with the former input on desktop. */
+.question-bar textarea {
+  min-width: 0;
+  min-height: 44px;
+  flex: 1;
+  padding: 0;
+  resize: none;
+  border: 0;
+  outline: 0;
+  color: var(--ink);
+  background: transparent;
+  font: inherit;
+  font-size: clamp(17px, 2vw, 25px);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.question-bar textarea::placeholder {
+  color: #7d929f;
+  opacity: 1;
+}
