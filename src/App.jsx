@@ -151,7 +151,7 @@ function Mascot({ gaze }) {
         <ellipse cx="218" cy="280" rx="77" ry="86" fill="url(#eyeDepth)" />
         <ellipse cx="402" cy="280" rx="77" ry="86" fill="url(#eyeDepth)" />
       </g>
-      <g className="pupil" style={{ transform: \`translate(\${gaze.x}px, \${gaze.y}px)\` }}>
+      <g className="pupil" style={{ transform: `translate(${gaze.x}px, ${gaze.y}px)` }}>
         <ellipse cx="218" cy="286" rx="43" ry="49" fill="#003b49" opacity=".88" />
         <ellipse cx="402" cy="286" rx="43" ry="49" fill="#003b49" opacity=".88" />
       </g>
