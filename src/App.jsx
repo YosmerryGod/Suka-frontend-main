@@ -235,7 +235,7 @@ export default function App() {
         </div>
 
         <div className="mascot-stage" ref={mascotRef}>
-          <div className="mascot-glow" />
+          {/* [MODIFIED] Lingkaran latar berasal dari SVG maskot, bukan elemen CSS terpisah. */}
           <div className="mascot-float"><Mascot gaze={gaze} /></div>
           <span className="mascot-caption">SUKA siap membantu bisnismu</span>
         </div>
