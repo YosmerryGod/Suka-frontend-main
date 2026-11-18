@@ -1629,3 +1629,137 @@ h1 {
     gap: 32px;
   }
 }
+
+
+/* [MODIFIED] Match the supplied mobile composition: remove flex-stretch whitespace and let the mascot meet the prompt card. */
+@media (pointer: coarse) and (max-width: 1100px) {
+  .landing-section {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    padding: 0 0 clamp(100px, 15vh, 150px);
+  }
+
+  .landing-section .hero {
+    flex: 0 0 auto;
+    height: auto;
+    min-height: 0;
+    margin-top: clamp(22px, 4vh, 38px);
+    gap: 0;
+  }
+
+  .landing-section .hero-copy {
+    flex: 0 0 auto;
+  }
+
+  .landing-section .eyebrow {
+    margin-bottom: clamp(25px, 4vh, 38px);
+  }
+
+  .landing-section .hero-copy h1 {
+    font-size: clamp(58px, 10.5vw, 88px);
+    line-height: 1.04;
+    letter-spacing: -0.055em;
+  }
+
+  .landing-section .mascot-stage {
+    flex: 0 0 auto;
+    width: calc(100% + 70px);
+    height: clamp(430px, 68vw, 590px);
+    margin: 8px -35px -52px;
+    overflow: visible;
+  }
+
+  .landing-section .mascot-float {
+    width: min(172%, 900px);
+    max-width: none;
+    margin: 0 0 -4px;
+  }
+
+  .landing-section .question-bar {
+    flex: 0 0 auto;
+    margin: 0 auto;
+    transform: translateY(-2px);
+  }
+
+  .mobile-progress {
+    top: 34%;
+  }
+}
+
+@media (pointer: coarse) and (max-width: 760px) {
+  .landing-section .hero-copy h1 {
+    font-size: clamp(52px, 10.8vw, 76px);
+    letter-spacing: -0.06em;
+  }
+
+  .landing-section .mascot-stage {
+    height: clamp(410px, 82vw, 520px);
+    margin-top: 8px;
+    margin-bottom: -50px;
+  }
+
+  .landing-section .mascot-float {
+    width: min(180%, 780px);
+  }
+
+  .landing-section .question-bar {
+    width: calc(100% - 42px);
+    min-height: 112px;
+    padding: 12px 12px 12px 26px;
+    border-radius: 38px;
+  }
+
+  .landing-section .question-bar textarea {
+    min-height: 66px;
+    font-size: clamp(17px, 3.8vw, 22px);
+    line-height: 1.45;
+  }
+
+  .landing-section .question-bar button {
+    flex-basis: 68px;
+    width: 68px;
+    height: 68px;
+  }
+
+  .landing-section .question-bar button svg {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (pointer: coarse) and (max-width: 560px) {
+  .landing-section .hero {
+    margin-top: 18px;
+  }
+
+  .landing-section .hero-copy h1 {
+    font-size: clamp(48px, 10.8vw, 62px);
+  }
+
+  .landing-section .mascot-stage {
+    height: clamp(370px, 94vw, 450px);
+    margin-bottom: -44px;
+  }
+
+  .landing-section .mascot-float {
+    width: min(180%, 680px);
+  }
+
+  .landing-section .question-bar {
+    width: calc(100% - 34px);
+    min-height: 102px;
+    padding: 10px 10px 10px 21px;
+  }
+
+  .landing-section .question-bar textarea {
+    min-height: 60px;
+    font-size: 16px;
+  }
+
+  .landing-section .question-bar button {
+    flex-basis: 60px;
+    width: 60px;
+    height: 60px;
+  }
+}
